@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simón Querio - Landing CV</title>
+  
+  <!-- Meta descripción (útil para SEO) -->
+  <meta name="description" content="Simón Querio - Estudiante apasionado por la tecnología y el cambio social.">
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Tu CSS personalizado (lo vemos después) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER con logo y presentación -->
+  <header class="hero" data-aos="fade-down" data-aos-duration="1000">
+    <div class="logo-container">
+  <a href="https://perceptrum.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="Logo.jpg" alt="Logo de Perceptrum" class="logo" />
+  </a>
+</div>
+    <h1>Simón Querio</h1>
+    <p>Estudiante de 16 años con la misión de cambiar el mundo a través de la tecnología.</p>
+  </header>
+
+  <!-- FOTO DE PERFIL -->
+  <section class="profile" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+    <img src="Foto.jpg" alt="Foto de perfil" class="profile-img" />
+    <p class="profile-text">Apasionado por el aprendizaje constante, la innovación y el trabajo en equipo.</p>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="skills" data-aos="fade-right" data-aos-duration="900" data-aos-delay="300">
+    <h2>Habilidades</h2>
+    <ul>
+      <li>Responsable y trabajador</li>
+      <li>Organizado y eficaz</li>
+      <li>Excelente trabajo en equipo</li>
+    </ul>
+  </section>
+
+  <!-- CONOCIMIENTOS -->
+  <section id="knowledge" data-aos="fade-left" data-aos-duration="900" data-aos-delay="400">
+    <h2>Conocimientos</h2>
+    <ul>
+      <li>HTML, CSS y JavaScript</li>
+      <li>SQL básico</li>
+      <li>Manejo de diversas inteligencias artificiales</li>
+    </ul>
+  </section>
+
+  <!-- FUTURO -->
+  <section id="future" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
+    <h2>¿Qué deseo para el futuro?</h2>
+    <p>Quiero vivir en un mundo más justo. Por eso participo en Perceptrum: porque no reemplazamos sentidos, potenciamos vidas.</p>
+  </section>
+
+  <!-- CONTACTO -->
+  <footer data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+    <p>Contacto: <a href="mailto:SQuerio@gmail.com">SQuerio@gmail.com</a></p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({
+        once: false,
+        easing: 'ease-in-out',
+        duration: 800
+      });
+
+      // SCROLL DETECTION MEJORADA PARA LOGO
+      const threshold = 250;
+      let isScrolled = false;
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > threshold && !isScrolled) {
+          document.body.classList.add('scrolled');
+          isScrolled = true;
+        } else if (window.scrollY <= threshold && isScrolled) {
+          document.body.classList.remove('scrolled');
+          isScrolled = false;
+        }
+      });
+
+      // Mostrar/Ocultar secciones según dirección de scroll
+      let lastScrollTop = 0;
+      const sections = document.querySelectorAll('section');
+
+      // Al cargar la página, aseguramos que las secciones estén visibles
+      sections.forEach(section => {
+        section.classList.add('show-section');
+      });
+
+      window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Scroll hacia abajo → mostrar las secciones
+          sections.forEach(section => {
+            section.classList.add('show-section');
+            section.classList.remove('hide-section');
+          });
+        } else {
+          // Scroll hacia arriba → ocultar las secciones
+          sections.forEach(section => {
+            section.classList.add('hide-section');
+            section.classList.remove('show-section');
+          });
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+    });
+  </script>
+<img src="Tierra.gif" alt="Animación" class="gif-bottom-right" />
+
+</body>
+</html>

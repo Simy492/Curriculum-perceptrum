@@ -1,0 +1,278 @@
+/* ---------------------- */
+/* VARIABLES Y FUENTES */
+/* ---------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+:root {
+  --rojo: #EF5959;
+  --naranja: #FF914D;
+  --amarillo: #FFBD59;
+  --bg-start: #1a1a1a;
+  --bg-end: #2a2a2a;
+  --text: #f4f4f4;
+  --card-bg: #2c2c2c;
+}
+
+/* ---------------------- */
+/* RESET Y BASE */
+/* ---------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.5s ease;
+}
+
+/* ---------------------- */
+/* HERO (HEADER) */
+/* ---------------------- */
+.hero {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--rojo), var(--naranja));
+  color: white;
+  padding: 20px;
+  border-bottom: 5px solid var(--amarillo);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 0 0 20px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* ---------------------- */
+/* LOGO */
+/* ---------------------- */
+.logo-container {
+  position: relative;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.logo {
+  max-width: 180px;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.3));
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px;
+}
+
+/* Cuando se hace scroll */
+body.scrolled .logo-container {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  transform: scale(0.6);
+  z-index: 10000;
+}
+
+body.scrolled .logo {
+  max-width: 100px;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+}
+
+/* ---------------------- */
+/* PROFILE SECTION */
+/* ---------------------- */
+.profile {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--naranja);
+  box-shadow: 0 0 15px rgba(255, 145, 77, 0.3);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 145, 77, 0.6);
+}
+
+.profile-text {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #ddd;
+}
+
+/* ---------------------- */
+/* SECCIONES GENERALES */
+/* ---------------------- */
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--amarillo);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  transition: color 0.3s ease;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: var(--naranja);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+h2:hover::after {
+  width: 100%;
+}
+
+h2:hover {
+  color: var(--naranja);
+}
+
+/* Listas */
+ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--naranja);
+  font-weight: bold;
+}
+
+li:hover {
+  color: var(--amarillo);
+  transform: translateX(5px);
+  cursor: default;
+}
+
+/* ---------------------- */
+/* SECCIÓN: FUTURO */
+/* ---------------------- */
+#future p {
+  font-style: italic;
+  color: #fafafa;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ---------------------- */
+/* FOOTER */
+/* ---------------------- */
+footer {
+  padding: 24px;
+  text-align: center;
+  background: #111;
+  border-top: 2px solid var(--rojo);
+  color: #eee;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--amarillo);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--naranja);
+  text-decoration: underline;
+}
+
+/* ---------------------- */
+/* RESPONSIVE */
+/* ---------------------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  section {
+    padding: 30px 15px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+/* Clase para ocultar las secciones */
+section.hide-section {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none; /* Para que no se pueda interactuar mientras está oculto */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Clase para mostrar (volver a estado normal) */
+section.show-section {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.gif-bottom-right {
+  position: fixed;
+  bottom: 20px;  /* distancia desde abajo */
+  right: 20px;   /* distancia desde la derecha */
+  width: 100px;  /* tamaño ancho, podés ajustar */
+  height: auto;
+  z-index: 1000; /* para que esté por encima de otros elementos */
+  pointer-events: none; /* para que no interfiera con clicks */
+}
